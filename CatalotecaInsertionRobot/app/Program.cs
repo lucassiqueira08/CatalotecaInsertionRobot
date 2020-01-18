@@ -24,7 +24,6 @@ namespace CatalotecaInsertionRobot
             string dbName = Console.ReadLine();
 
             Console.WriteLine("Digite o caminho completo para o arquivo:");
-            //@"C:\Users\lalve\source\repos\CatalotecaInsertionRobot\CatalotecaInsertionRobot\data\BASE MARS VM 2.xlsx";
             string filePath = @Console.ReadLine();
 
             string stringConnection = GetStringConnection(server, dbName);
