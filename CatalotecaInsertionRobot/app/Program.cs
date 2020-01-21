@@ -42,7 +42,7 @@ namespace CatalotecaInsertionRobot
 
             Console.WriteLine("-------------------------");
             // Terminando count de tempo de processamento
-            Console.WriteLine($"Tempo de processamento: {stopwatch.ElapsedTicks}");
+            Console.WriteLine($"Tempo de processamento (Em segundos): {stopwatch.Elapsed.TotalSeconds}");
             stopwatch.Stop();
             Console.WriteLine("Fim!");
 
