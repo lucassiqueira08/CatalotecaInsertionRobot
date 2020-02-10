@@ -15,6 +15,7 @@ namespace CatalotecaInsertionRobot.src.Data
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+                    int insertLines = 0;
                     string query = $"INSERT INTO {table} (Id, Name, ShortDescription, LongDescription ) VALUES (@Id, @Name, @ShortDescription, @LongDescription);";
 
                     connection.Open();
@@ -42,10 +43,12 @@ namespace CatalotecaInsertionRobot.src.Data
                             command.Parameters.AddWithValue("@ShortDescription", row.ShortDescription.ToString());
                             command.Parameters.AddWithValue("@LongDescription", row.LongDescription.ToString());
                             command.ExecuteNonQuery();
+                            insertLines++;
                         }
+                        transaction.Commit();
                         Console.WriteLine("-------------------------");
                         Console.WriteLine("Linhas Inseridas:");
-                        transaction.Commit();
+                        Console.WriteLine(insertLines + 1);
                     }
                     catch (Exception ex)
                     {
